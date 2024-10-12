@@ -1,0 +1,152 @@
+/* Initializes a variable at root called font color so I don't have to change each one manually. */
+
+:root{
+    --font-color: white
+}
+
+/* Includes the padding in an elements total width, honestly I took this one from a tutorial but its apparently a standard. */
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+/* In the html makes it so that snap scrolling is done between each section. */
+html{
+    scroll-snap-type: y mandatory;
+}
+
+
+
+body{
+    background: black;
+}
+
+/* Section is a flex box where all elements are in a column that takes up the entire screen, this is also where each snap scroll will be from and to */
+
+.section{
+    scroll-snap-align: start;
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+/* Page Body is also a flex container, the previous one is to center this container. This one contains the background and elements */
+
+.page-body{
+    
+    flex-grow: 1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+
+}
+
+/* An inner container once more, this one is for the actual elements themselves so they can be neatly organized with equal padding and centered */
+
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:25px;
+    width: auto;
+}
+
+/* Both row and column are modifiers for the .container class in that it is used in conjunction to more promptly change the order of elements to be
+next to each other or to be under each other. */
+.column{
+    flex-direction: column;
+}
+
+.row{
+    flex-direction: row;
+}
+
+
+/* CSS for the hero page, used in conjunction with the regular page-body shows images and flex direction of items. */
+.hero{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://media.istockphoto.com/id/1081422898/photo/pan-fried-duck.jpg?s=612x612&w=0&k=20&c=kzlrX7KJivvufQx9mLd-gMiMHR6lC2cgX009k9XO6VA=) no-repeat center/cover;
+    flex-direction: column;
+}
+
+/* div for page-body so I don't have to call a class every time I make a div. Flex-wrap to make sure the text wraps when in responsive */
+.page-body div{
+    max-width: 1000px;
+    flex-wrap: wrap;
+    max-height:100v;
+    
+}
+
+h1{
+    font-size: 7rem;
+    text-align: center;
+    color: var(--font-color)
+}
+
+h2{
+    padding-top: 5px;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--font-color);
+    font-weight: lighter;
+}
+
+h3{
+    padding-top: 5px;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--font-color);
+    font-style: italic;
+}
+
+
+
+p{
+    text-align: center;
+    color: var(--font-color)
+}
+
+p.content{
+    text-align: left;
+    font-size: 1.5rem;
+    margin-right: 30px;
+
+}
+
+/* Classes for background gradients */
+.bgrad{
+    background: rgb(98,39,24);
+    background: linear-gradient(0deg, rgba(98,39,24,1) 0%, rgba(91,62,0,1) 100%);
+}
+
+.bgrad2{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(56,2,84,1) 35%, rgba(21,0,40,1) 100%);
+}
+
+
+/* This is the responsive section for screens between */
+@media screen and (max-width: 1000px){
+    .section{
+        min-width: 105vw;
+        max-height: 100vw;
+        flex-grow: 1;
+    }
+
+    h1{
+        font-size: 4vw;
+    }
+
+
+    p.content{
+        font-size: 20px;
+    }
+    p{
+        font-size: 12px
+    }
+
+
+  }
